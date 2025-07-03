@@ -72,6 +72,8 @@
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_SpriteRendererArray.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\AvatarImageLoaded_t.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\GCMessageFailed_t.cs" />
+    <Compile Include="Assets\Plugins\AmplifyColor\Plugins\AmplifyColorVolumeBase.cs" />
+    <Compile Include="Assets\Plugins\AmplifyColor\Plugins\AmplifyColorTriggerProxy.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_EmissionModule.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\Steamworks\SteamNetworking.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_ES3Ref.cs" />
@@ -79,6 +81,7 @@
     <Compile Include="Assets\Standard Assets\Scripts\Steamworks\Packsize.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_ES3RefDictionary.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_Random.cs" />
+    <Compile Include="Assets\Plugins\AmplifyColor\Plugins\AmplifyColorVolume.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\Steamworks\SteamUtils.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_FontArray.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\Steamworks\EDurationControlProgress.cs" />
@@ -112,6 +115,7 @@
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3ReflectedComponentType.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\Steamworks\SteamGameServerUtils.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3File.cs" />
+    <Compile Include="Assets\Plugins\AmplifyColor\Plugins\AmplifyColorRenderMask.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\GlobalAchievementPercentagesReady_t.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_KeyframeArray.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\JoinPartyCallback_t.cs" />
@@ -263,6 +267,7 @@
     <Compile Include="Assets\Standard Assets\Scripts\RemoteStoragePublishedFileUpdated_t.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\Steamworks\ELobbyType.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\RemoteStorageEnumerateUserSharedWorkshopFilesResult_t.cs" />
+    <Compile Include="Assets\Plugins\AmplifyColor\Plugins\AmplifyColorTriggerProxyBase.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_MeshCollider.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3ReflectedObjectType.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\SteamNetConnectionInfo_t.cs" />
@@ -411,6 +416,7 @@
     <Compile Include="Assets\Standard Assets\Scripts\ES3Internal\ES3ReferenceMgrBase.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\LobbyKicked_t.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\PersonaStateChange_t.cs" />
+    <Compile Include="Assets\Plugins\AmplifyColor\Plugins\AmplifyColorTriggerProxy2D.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\servernetadr_t.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\RemoteStorageDownloadUGCResult_t.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\Steamworks\SteamMatchmakingServers.cs" />
@@ -443,6 +449,7 @@
     <Compile Include="Assets\Standard Assets\Scripts\HTML_CloseBrowser_t.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\SetUserItemVoteResult_t.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_CollisionModule.cs" />
+    <Compile Include="Assets\Plugins\AmplifyColor\Plugins\AmplifyColorEffect.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\Steamworks\SteamInventory.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\UGCHandle_t.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\DownloadItemResult_t.cs" />
@@ -561,11 +568,13 @@
     <Compile Include="Assets\Standard Assets\Scripts\HTML_HorizontalScroll_t.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\GSClientGroupStatus_t.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_RenderTextureArray.cs" />
+    <Compile Include="Assets\Plugins\AmplifyColor\Plugins\Runtime\VolumeEffects.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\FriendsGroupID_t.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\Steamworks\SteamNetworkingMessages.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\Steamworks\EChatRoomEnterResponse.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\RemoteStorageGetPublishedFileDetailsResult_t.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\Steamworks\EHTTPMethod.cs" />
+    <Compile Include="Assets\Plugins\AmplifyColor\Plugins\Runtime\VolumeEffectsFlags.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Internal\ES3SerializableDictionary_TKey, TVal_.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\Steamworks\EPersonaState.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3ReflectedScriptableObjectType.cs" />
@@ -670,6 +679,7 @@
     <Compile Include="Assets\Standard Assets\Scripts\IPCountry_t.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_PolygonCollider2D.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_QuaternionArray.cs" />
+    <Compile Include="Assets\Plugins\AmplifyColor\Plugins\Runtime\VersionInfo.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\HServerListRequest.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\Steamworks\ECheckFileSignature.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\CallbackMsg_t.cs" />
@@ -687,6 +697,7 @@
     <Compile Include="Assets\Standard Assets\Scripts\SubmitItemUpdateResult_t.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\Steamworks\SteamGameServerApps.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\Steamworks\EFailureType.cs" />
+    <Compile Include="Assets\Plugins\AmplifyColor\Plugins\AmplifyColorVolume2D.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\RemoteStorageEnumerateUserSubscribedFilesResult_t.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\Steamworks\InteropHelp.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_Light.cs" />
@@ -736,32 +747,44 @@
     <None Include="Assets\Plugins\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Plugins\AmplifyColor.dll" />
     <None Include="Assets\Plugins\Cinemachine.dll" />
+    <None Include="Assets\Plugins\AmplifyColor\EditorResources\Shaders\DepthMask.shader" />
     <None Include="Assets\Plugins\x86_64\steam_api64.dll" />
     <None Include="Assets\Plugins\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\Plugins\Sirenix.Utilities.dll" />
     <None Include="Assets\Plugins\Water\Water4\Shaders\WaterInclude.cginc" />
     <None Include="Assets\Plugins\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\Plugins\AmplifyColor\EditorResources\Shaders\DepthMaskBlend.shader" />
+    <None Include="Assets\Plugins\AmplifyColor\EditorResources\Shaders\RenderMask.shader" />
     <None Include="Assets\Plugins\Water\Water4\Shaders\FXWater4Advanced.shader" />
     <None Include="Assets\Plugins\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\Plugins\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\Plugins\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\Plugins\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\Plugins\AmplifyColor\EditorResources\Shaders\Base.shader" />
     <None Include="Assets\Plugins\Sirenix.OdinInspector.Attributes.dll" />
     <None Include="Assets\Plugins\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\Plugins\AmplifyColor\EditorResources\Shaders\MaskBlend.shader" />
     <None Include="Assets\Plugins\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Plugins\Sirenix.Serialization.Config.dll" />
     <None Include="Assets\Plugins\Water\Water4\Shaders\FXWater4Simple.shader" />
+    <None Include="Assets\Plugins\AmplifyColor\EditorResources\Shaders\Common.cginc" />
+    <None Include="Assets\Plugins\AmplifyColor\EditorResources\Shaders\ProcessOnly.shader" />
     <None Include="Assets\Plugins\Unity.Postprocessing.Runtime.dll" />
+    <None Include="Assets\Plugins\AmplifyColor\Readme.txt" />
     <None Include="Assets\Plugins\Water\Water\Shaders\FXWaterPro.shader" />
     <None Include="Assets\Plugins\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\Plugins\Sirenix.OdinInspector.CompatibilityLayer.dll" />
     <None Include="Assets\Plugins\Water\Water (Basic)\Shaders\FXWaterBasic.shader" />
     <None Include="Assets\Plugins\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\Plugins\AmplifyColor\EditorResources\Shaders\Mask.shader" />
     <None Include="Assets\Plugins\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\Plugins\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\Plugins\AmplifyColor\Samples\LUT\Check out the full LUT Package.txt" />
+    <None Include="Assets\Plugins\AmplifyColor\EditorResources\Shaders\Blend.shader" />
     <None Include="Assets\Plugins\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\Plugins\Sirenix.Serialization.dll" />
     <None Include="Assets\Plugins\x86_64\Steamworks.NET.txt" />
+    <None Include="Assets\Plugins\AmplifyColor\EditorResources\Shaders\BlendCache.shader" />
     <None Include="Assets\Plugins\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
