@@ -4570,8 +4570,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 5b84c3ef04284d5a8d3b40a7f0cc0781, type: 2}
-  m_Color: {r: 0.25, g: 0.813793, b: 1, a: 1}
+  m_Material: {fileID: 2100000, guid: 804a55f6ba7a44048c9790bfb17e761b, type: 2}
+  m_Color: {r: 0.25098038, g: 1, b: 0.26098534, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4620,7 +4620,7 @@ MonoBehaviour:
   remainCountText: {fileID: 1791768366284263954}
   targetCountText: {fileID: 1791768366284263940}
   redColor: {r: 1, g: 0.1933962, b: 0.1933962, a: 1}
-  greenColor: {r: 0.6286563, g: 1, b: 0.1084906, a: 1}
+  greenColor: {r: 0.35721126, g: 1, b: 0.109803915, a: 1}
   defeatCanvasGroup: {fileID: 1791768368146534904}
   defeatStringText: {fileID: 1791768366284263944}
   successCanvasGroup: {fileID: 1791768368146534903}
@@ -7508,49 +7508,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 627403d3a903a0382365bf65f97f37d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tonemapper: 0
-  Exposure: 1
-  LinearWhitePoint: 11.2
-  ApplyDithering: 0
-  QualityLevel: 1
-  BlendAmount: 0.6
-  LutTexture: {fileID: 2800000, guid: e52b2c51a69b49f28bd20d3c0adc6c60, type: 3}
-  LutBlendTexture: {fileID: 0}
-  MaskTexture: {fileID: 0}
-  UseDepthMask: 0
-  DepthMaskCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  UseVolumes: 0
-  ExitVolumeBlendTime: 1
-  TriggerVolumeProxy: {fileID: 0}
-  VolumeCollisionMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  EffectFlags:
-    components: []
-  sharedInstanceID: 96ca341d-cb98-4e10-bb57-6c87cdc1168d
 --- !u!114 &1791768366284264061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30412,7 +30369,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791768364388438055}
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
