@@ -65,11 +65,15 @@ public class SteamManager : MonoBehaviour
 		}
 		try
 		{
+#if !UNITY_EDITOR
 			if (SteamAPI.RestartAppIfNecessary((AppId_t)1806040u))
 			{
 				Application.Quit();
 				return;
 			}
+#else
+			Debug.Log("Editor mode Ч не запускаем Steam через RestartAppIfNecessary");
+#endif
 		}
 		catch (DllNotFoundException ex)
 		{

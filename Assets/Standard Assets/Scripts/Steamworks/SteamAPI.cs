@@ -39,7 +39,7 @@ namespace Steamworks
 
 		public static void RunCallbacks()
 		{
-			CallbackDispatcher.RunFrame(isGameServer: false);
+			//CallbackDispatcher.RunFrame(isGameServer: false);
 		}
 
 		public static bool IsSteamRunning()
