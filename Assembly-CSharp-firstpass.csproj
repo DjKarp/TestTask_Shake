@@ -119,12 +119,12 @@
     <Compile Include="Assets\Standard Assets\Scripts\SteamInventoryStartPurchaseResult_t.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\EncryptedAppTicketResponse_t.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\RemoteStorageFileReadAsyncComplete_t.cs" />
-    <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_SkinnedMeshRendererArray.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\Steamworks\ETextFilteringContext.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_BoneWeightArray.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\Steamworks\SteamGameServerUGC.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3ReflectedType.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\HSteamListenSocket.cs" />
+    <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_SkinnedMeshRendererArray.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\RemoteStoragePublishedFileDeleted_t.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_ColorOverLifetimeModule.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Internal\ES3Prefab.cs" />
@@ -433,8 +433,8 @@
     <Compile Include="Assets\Standard Assets\Scripts\InputDigitalActionHandle_t.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\Steamworks\NativeMethods.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3StackType.cs" />
-    <Compile Include="Assets\Standard Assets\Scripts\RTime32.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\SNetSocket_t.cs" />
+    <Compile Include="Assets\Standard Assets\Scripts\RTime32.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3XMLReader.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_ColorArray.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ScreenshotReady_t.cs" />
@@ -497,8 +497,8 @@
     <Compile Include="Assets\Standard Assets\Scripts\Steamworks\CSteamGameServerAPIContext.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_RotationBySpeedModule.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3HashSetType.cs" />
-    <Compile Include="Assets\Standard Assets\Scripts\SteamNetworkingMessagesSessionRequest_t.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\Steamworks\EAccountType.cs" />
+    <Compile Include="Assets\Standard Assets\Scripts\SteamNetworkingMessagesSessionRequest_t.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_UIntPtr.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_intArray.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\LobbyEnter_t.cs" />
@@ -546,8 +546,8 @@
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3ComponentType.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_SizeBySpeedModule.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\GSPolicyResponse_t.cs" />
-    <Compile Include="Assets\Standard Assets\Scripts\Steamworks\ESteamControllerPad.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_VelocityOverLifetimeModule.cs" />
+    <Compile Include="Assets\Standard Assets\Scripts\Steamworks\ESteamControllerPad.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\Steamworks\EMouseCursor.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_Color.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\HSteamUser.cs" />
@@ -632,9 +632,9 @@
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_Color32.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\HTML_JSAlert_t.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\FreeCameraControl.cs" />
+    <Compile Include="Assets\Standard Assets\Scripts\Steamworks\ERegisterActivationCodeResult.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\Steamworks\SteamGameServerClient.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_Shader.cs" />
-    <Compile Include="Assets\Standard Assets\Scripts\Steamworks\ERegisterActivationCodeResult.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_decimalArray.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\Steamworks\ELobbyComparison.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\Steamworks\SteamAppList.cs" />
@@ -703,8 +703,8 @@
     <Compile Include="Assets\Standard Assets\Scripts\Steamworks\SteamParties.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Reader.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_LimitVelocityOverLifetimeModule.cs" />
-    <Compile Include="Assets\Standard Assets\Scripts\SubmitPlayerResultResultCallback_t.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_longArray.cs" />
+    <Compile Include="Assets\Standard Assets\Scripts\SubmitPlayerResultResultCallback_t.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\SteamNetworkingIPAddr.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\RemoteStorageFileWriteAsyncComplete_t.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_LightsModule.cs" />
