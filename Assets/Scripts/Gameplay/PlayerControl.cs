@@ -1,4 +1,5 @@
 using FlamingCore;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -61,30 +62,18 @@ public class PlayerControl : MonoBehaviour
 
 	public Combat Combat => combat;
 
-	private AddedControl.IDirectionInput _directionController;
-	private AddedControl.IActionInput _actionController;
+	private InputService _inputService;
 
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody>();
 		combat = GetComponent<Combat>();
-
-		// Initialize control
-		if (true)
-		{
-			_directionController = new AddedControl.JoystickDirectionInput(GameManager.Instance.GetJoystick());
-			_actionController = GameManager.Instance.GetTouchActionInput();
-		}
-		else
-		{
-			_directionController = new AddedControl.KeyboardDirectionInput();
-			_actionController = new AddedControl.KeyboardActionInput();
-		}
 	}
 
 	private void Start()
 	{
 		pointer = GameManager.Instance.LevelManager.Pointer;
+		_inputService = GameManager.Instance.InputService;
 	}
 
 	private void Update()
@@ -135,7 +124,7 @@ public class PlayerControl : MonoBehaviour
 		{
 			dashTimer -= Time.deltaTime;
 		}
-		if (_actionController.IsDashPressed() && dashCoolTimer <= 0f)
+		if (_inputService.ActionController.IsDashPressed() && dashCoolTimer <= 0f)
 		{
 			dashCoolTimer = dashCoolTime;
 			dashTimer = dashTime;
@@ -155,8 +144,8 @@ public class PlayerControl : MonoBehaviour
 	private void UpdateTopDownMovement()
 	{
 		Vector3 a = Vector3.zero;		
-		a += _directionController.GetVertical();
-		a += _directionController.GetHorizontal();		
+		a += _inputService.DirectionController.GetVertical();
+		a += _inputService.DirectionController.GetHorizontal();		
 		a = a.normalized;
 		float d = speed;
 		if (dashMode)
@@ -174,8 +163,8 @@ public class PlayerControl : MonoBehaviour
 	private void UpdateFpsMovement()
 	{
 		Vector3 a = Vector3.zero;
-		a += _directionController.GetVertical();
-		a += _directionController.GetHorizontal();
+		a += _inputService.DirectionController.GetVertical();
+		a += _inputService.DirectionController.GetHorizontal();
 		a = a.normalized;
 		float num = speed;
 		if (dashMode)
@@ -191,11 +180,11 @@ public class PlayerControl : MonoBehaviour
 			velocityTemp = (FCTool.Vector3YToZero(GameManager.Instance.CameraManager.FpsCameraArm.transform.forward).normalized * a.z + FCTool.Vector3YToZero(GameManager.Instance.CameraManager.FpsCameraArm.transform.right).normalized * a.x).normalized * num;
 			velocityTemp.y = rb.velocity.y;
 		}
-		if (_actionController.IsJumpPressed() && checkGround)
+		if (_inputService.ActionController.IsJumpPressed() && checkGround)
 		{
 			velocityTemp.y = jumpSpeed;
 		}
-		if (_actionController.IsJumpPressed() && floatingMode && velocityTemp.y < 0f)
+		if (_inputService.ActionController.IsJumpPressed() && floatingMode && velocityTemp.y < 0f)
 		{
 			velocityTemp.y = 0f;
 		}

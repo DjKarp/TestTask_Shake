@@ -56,6 +56,8 @@ public class Aimer : MonoBehaviour
 				subAimers[i].SetAsSubAimer();
 			}
 		}
+
+		aimWay = GameManager.Instance.InputService.TouchInput ? Aimer.aimWays.aimMoveDirection : Aimer.aimWays.aimPointer;
 	}
 
 	private void Update()

@@ -1,4 +1,5 @@
 using UnityEngine;
+using AddedControl;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class GameManager : MonoBehaviour
 
 	private CameraManager cameraManager;
 
+	private InputService _inputService;
+
 	private bool inited;
 
 	public static GameManager Instance => instance;
@@ -44,10 +47,10 @@ public class GameManager : MonoBehaviour
 
 	public CameraManager CameraManager => cameraManager;
 
+	public InputService InputService => _inputService;
+
 	public int currentLevel => levelManager.levelInfo.currentLevelIndex;
 
-	private AddedControl.Joystick _joystick;
-	private AddedControl.TouchActionInput _touchAction;
 
 	public void Init()
 	{
@@ -64,6 +67,7 @@ public class GameManager : MonoBehaviour
 		boomManager = GetComponent<BoomManager>();
 		uiManager = GetComponent<UIManager>();
 		cameraManager = GetComponent<CameraManager>();
+		_inputService = GetComponent<InputService>();
 		inited = true;
 		Application.targetFrameRate = 144;
 	}
@@ -92,20 +96,5 @@ public class GameManager : MonoBehaviour
 			DataManager.CountEnemyKilled();
 		}
 		DataManager.Save();
-	}
-
-	// Не хорошо делать так. Я бы его черз DI внедрил в PlayerControl конечно.
-	public AddedControl.Joystick GetJoystick()
-	{
-		_joystick = GetComponentInChildren<AddedControl.Joystick>();
-		_joystick.gameObject.SetActive(true);
-		return _joystick;
-	}
-
-	public AddedControl.TouchActionInput GetTouchActionInput()
-	{
-		_touchAction = GetComponentInChildren<AddedControl.TouchActionInput>();
-		_joystick.gameObject.SetActive(true);
-		return _touchAction;
 	}
 }

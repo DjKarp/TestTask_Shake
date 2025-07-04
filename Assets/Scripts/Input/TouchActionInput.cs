@@ -6,18 +6,18 @@ using UnityEngine.UI;
 
 namespace AddedControl
 {
-    public class TouchActionInput : MonoBehaviour, IActionInput, IPointerDownHandler, IPointerUpHandler
+    public class TouchActionInput : MonoBehaviour, IActionInput
     {
         [SerializeField] private Button _fireButton;
         [SerializeField] private Button _slowButton;
 
         private bool _isFirePress = false;
+        private bool _isSlowPress = false;
 
         public void Start()
         {
-            _fireButton.onClick.AddListener(() => IsFirePressed());
-
-            _slowButton.onClick.AddListener(() => IsSlowPressed());
+            AddEvents(_fireButton, () => _isFirePress = true, () => _isFirePress = false);
+            AddEvents(_slowButton, () => _isSlowPress = true, () => _isSlowPress = false);
         }
 
         public bool IsDashPressed()
@@ -47,20 +47,32 @@ namespace AddedControl
 
         public bool IsSlowPressed()
         {
-            return true;
+            return _isSlowPress;
         }
 
-        public void OnPointerDown(PointerEventData eventData)
+        private void AddEvents(Button button, System.Action onDown, System.Action onUp)
         {
-            if (_fireButton.interactable)
+            var trigger = button.gameObject.GetComponent<EventTrigger>();
+            if (trigger == null)
             {
-                _isFirePress = true;
+                trigger = button.gameObject.AddComponent<EventTrigger>();
             }
-        }
 
-        public void OnPointerUp(PointerEventData eventData)
-        {
-            _isFirePress = false;
+            // PointerDown
+            var entryDown = new EventTrigger.Entry
+            {
+                eventID = EventTriggerType.PointerDown
+            };
+            entryDown.callback.AddListener((data) => onDown.Invoke());
+            trigger.triggers.Add(entryDown);
+
+            // PointerUp
+            var entryUp = new EventTrigger.Entry
+            {
+                eventID = EventTriggerType.PointerUp
+            };
+            entryUp.callback.AddListener((data) => onUp.Invoke());
+            trigger.triggers.Add(entryUp);
         }
     }
 }

@@ -75,7 +75,7 @@ public class Gun : MonoBehaviour
 
 	public bool IsMeleeWeapon => isMeleeWeapon;
 
-	private AddedControl.IActionInput _actionController;
+	private InputService _inputService;
 
 	private void Awake()
 	{
@@ -84,15 +84,7 @@ public class Gun : MonoBehaviour
 			lightIntensity = muzzleLight.intensity;
 		}
 
-		// Initialize control
-		if (false)
-		{
-			_actionController = GameManager.Instance.GetTouchActionInput();
-		}
-		else
-		{
-			_actionController = new AddedControl.KeyboardActionInput();
-		}
+		_inputService = GameManager.Instance.InputService;
 	}
 
 	private void Update()
@@ -145,7 +137,7 @@ public class Gun : MonoBehaviour
 			{
 				shootTimer += Time.deltaTime;
 			}
-			bool flag = (autoTrigger && _actionController.IsFirePress()) || (!autoTrigger && _actionController.IsFirePressed());
+			bool flag = (autoTrigger && _inputService.ActionController.IsFirePress()) || (!autoTrigger && _inputService.ActionController.IsFirePressed());
 			if ((canShoot || (flag && !player.Combat.IsDead && team != 1)) && Active && shootTimer >= realShootTime)
 			{
 				ShootOneBullet();
