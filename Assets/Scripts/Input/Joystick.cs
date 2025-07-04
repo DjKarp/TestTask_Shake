@@ -24,8 +24,6 @@ namespace AddedControl
 
         private bool _isActive = true;
 
-        private Camera _camera;
-
         private void Start()
         {
             if (_isActive)
@@ -33,10 +31,6 @@ namespace AddedControl
                 SwitchJoysticSettings();
 
                 _joystickFonStartPosition = _joystickFon.rectTransform.anchoredPosition;
-
-                _camera = GameManager.Instance.CameraManager.RenderCamera == null
-                    ? GameManager.Instance.CameraManager.renderCameraPfb.TopCamera.Camera
-                    : GameManager.Instance.CameraManager.RenderCamera.TopCamera.Camera;
             }
         }
 
@@ -59,7 +53,7 @@ namespace AddedControl
 
         public void OnDrag(PointerEventData eventData)
         {
-            if (_isActive && RectTransformUtility.ScreenPointToLocalPointInRectangle(_joystickFon.rectTransform, eventData.position, _camera, out joystickFonPosition))
+            if (_isActive && RectTransformUtility.ScreenPointToLocalPointInRectangle(_joystickFon.rectTransform, eventData.position, null, out joystickFonPosition))
             {
                 joystickFonPosition.x = (joystickFonPosition.x * 2.0f) / _joystickFon.rectTransform.sizeDelta.x;
                 joystickFonPosition.y = (joystickFonPosition.y * 2.0f) / _joystickFon.rectTransform.sizeDelta.y;
@@ -77,7 +71,7 @@ namespace AddedControl
             {
                 SwitchJoysticSettings();
 
-                if (RectTransformUtility.ScreenPointToLocalPointInRectangle(_joystickTapArea.rectTransform, eventData.position, _camera, out joystickFonPosition))
+                if (RectTransformUtility.ScreenPointToLocalPointInRectangle(_joystickTapArea.rectTransform, eventData.position, null, out joystickFonPosition))
                 {
                     _joystickFon.rectTransform.anchoredPosition = new Vector2(joystickFonPosition.x, joystickFonPosition.y);
                 }

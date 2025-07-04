@@ -70,7 +70,7 @@ public class PlayerControl : MonoBehaviour
 		combat = GetComponent<Combat>();
 
 		// Initialize control
-		if (false)
+		if (true)
 		{
 			_directionController = new AddedControl.JoystickDirectionInput(GameManager.Instance.GetJoystick());
 			_actionController = GameManager.Instance.GetTouchActionInput();
