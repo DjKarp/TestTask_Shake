@@ -19,7 +19,7 @@ public class PlayerControl : MonoBehaviour
 	[SerializeField]
 	private FpsCameraArm fpsCameraArm;
 
-	public Transform sideCameraTransform;
+	public Transform sideCameraTransform;	
 
 	private Rigidbody rb;
 
@@ -61,10 +61,25 @@ public class PlayerControl : MonoBehaviour
 
 	public Combat Combat => combat;
 
+	private AddedControl.IDirectionInput _directionController;
+	private AddedControl.IActionInput _actionController;
+
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody>();
 		combat = GetComponent<Combat>();
+
+		// Initialize control
+		if (false)
+		{
+			_directionController = new AddedControl.JoystickDirectionInput(GameManager.Instance.GetJoystick());
+			_actionController = GameManager.Instance.GetTouchActionInput();
+		}
+		else
+		{
+			_directionController = new AddedControl.KeyboardDirectionInput();
+			_actionController = new AddedControl.KeyboardActionInput();
+		}
 	}
 
 	private void Start()
@@ -120,7 +135,7 @@ public class PlayerControl : MonoBehaviour
 		{
 			dashTimer -= Time.deltaTime;
 		}
-		if (Input.GetMouseButtonDown(1) && dashCoolTimer <= 0f)
+		if (_actionController.IsDashPressed() && dashCoolTimer <= 0f)
 		{
 			dashCoolTimer = dashCoolTime;
 			dashTimer = dashTime;
@@ -139,23 +154,9 @@ public class PlayerControl : MonoBehaviour
 
 	private void UpdateTopDownMovement()
 	{
-		Vector3 a = Vector3.zero;
-		if (UnityEngine.Input.GetKey(KeyCode.A))
-		{
-			a += Vector3.left;
-		}
-		if (UnityEngine.Input.GetKey(KeyCode.D))
-		{
-			a += Vector3.right;
-		}
-		if (UnityEngine.Input.GetKey(KeyCode.W))
-		{
-			a += Vector3.forward;
-		}
-		if (UnityEngine.Input.GetKey(KeyCode.S))
-		{
-			a += Vector3.back;
-		}
+		Vector3 a = Vector3.zero;		
+		a += _directionController.GetVertical();
+		a += _directionController.GetHorizontal();		
 		a = a.normalized;
 		float d = speed;
 		if (dashMode)
@@ -173,22 +174,8 @@ public class PlayerControl : MonoBehaviour
 	private void UpdateFpsMovement()
 	{
 		Vector3 a = Vector3.zero;
-		if (UnityEngine.Input.GetKey(KeyCode.A))
-		{
-			a += Vector3.left;
-		}
-		if (UnityEngine.Input.GetKey(KeyCode.D))
-		{
-			a += Vector3.right;
-		}
-		if (UnityEngine.Input.GetKey(KeyCode.W))
-		{
-			a += Vector3.forward;
-		}
-		if (UnityEngine.Input.GetKey(KeyCode.S))
-		{
-			a += Vector3.back;
-		}
+		a += _directionController.GetVertical();
+		a += _directionController.GetHorizontal();
 		a = a.normalized;
 		float num = speed;
 		if (dashMode)
@@ -204,11 +191,11 @@ public class PlayerControl : MonoBehaviour
 			velocityTemp = (FCTool.Vector3YToZero(GameManager.Instance.CameraManager.FpsCameraArm.transform.forward).normalized * a.z + FCTool.Vector3YToZero(GameManager.Instance.CameraManager.FpsCameraArm.transform.right).normalized * a.x).normalized * num;
 			velocityTemp.y = rb.velocity.y;
 		}
-		if (UnityEngine.Input.GetKeyDown(KeyCode.Space) && checkGround)
+		if (_actionController.IsJumpPressed() && checkGround)
 		{
 			velocityTemp.y = jumpSpeed;
 		}
-		if (UnityEngine.Input.GetKey(KeyCode.Space) && floatingMode && velocityTemp.y < 0f)
+		if (_actionController.IsJumpPressed() && floatingMode && velocityTemp.y < 0f)
 		{
 			velocityTemp.y = 0f;
 		}

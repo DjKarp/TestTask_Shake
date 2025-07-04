@@ -75,11 +75,23 @@ public class Gun : MonoBehaviour
 
 	public bool IsMeleeWeapon => isMeleeWeapon;
 
+	private AddedControl.IActionInput _actionController;
+
 	private void Awake()
 	{
 		if ((bool)muzzleLight)
 		{
 			lightIntensity = muzzleLight.intensity;
+		}
+
+		// Initialize control
+		if (false)
+		{
+			_actionController = GameManager.Instance.GetTouchActionInput();
+		}
+		else
+		{
+			_actionController = new AddedControl.KeyboardActionInput();
 		}
 	}
 
@@ -133,7 +145,7 @@ public class Gun : MonoBehaviour
 			{
 				shootTimer += Time.deltaTime;
 			}
-			bool flag = (autoTrigger && Input.GetMouseButton(0)) || (!autoTrigger && Input.GetMouseButtonDown(0));
+			bool flag = (autoTrigger && _actionController.IsFirePress()) || (!autoTrigger && _actionController.IsFirePressed());
 			if ((canShoot || (flag && !player.Combat.IsDead && team != 1)) && Active && shootTimer >= realShootTime)
 			{
 				ShootOneBullet();

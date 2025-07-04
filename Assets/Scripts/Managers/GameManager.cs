@@ -46,6 +46,9 @@ public class GameManager : MonoBehaviour
 
 	public int currentLevel => levelManager.levelInfo.currentLevelIndex;
 
+	private AddedControl.Joystick _joystick;
+	private AddedControl.TouchActionInput _touchAction;
+
 	public void Init()
 	{
 		Object.DontDestroyOnLoad(base.gameObject);
@@ -89,5 +92,20 @@ public class GameManager : MonoBehaviour
 			DataManager.CountEnemyKilled();
 		}
 		DataManager.Save();
+	}
+
+	// Не хорошо делать так. Я бы его черз DI внедрил в PlayerControl конечно.
+	public AddedControl.Joystick GetJoystick()
+	{
+		_joystick = GetComponentInChildren<AddedControl.Joystick>();
+		_joystick.gameObject.SetActive(true);
+		return _joystick;
+	}
+
+	public AddedControl.TouchActionInput GetTouchActionInput()
+	{
+		_touchAction = GetComponentInChildren<AddedControl.TouchActionInput>();
+		_joystick.gameObject.SetActive(true);
+		return _touchAction;
 	}
 }
