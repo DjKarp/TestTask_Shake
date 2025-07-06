@@ -50,6 +50,8 @@ public class DataManager : MonoBehaviour
 
 		public bool theMythDefeated;
 
+		public bool _tempSurvivalModeUnlocked;
+
 		[SerializeField]
 		public Dictionary<string, float> customFloatValues;
 

@@ -11,7 +11,7 @@ public class FinishZone : MonoBehaviour
 
 	public GameObject unfinshObj;
 
-	private bool locked;
+	protected bool Locked;
 
 	[Space]
 	[Header("selecter")]
@@ -43,7 +43,7 @@ public class FinishZone : MonoBehaviour
 		}
 		else if (!DataManager.EverEnteredLevel("Level" + selectIndex.ToString()) && !forceUnlock)
 		{
-			locked = true;
+			Locked = true;
 			text.color = lockedTextColor;
 			for (int i = 0; i < renderers.Count; i++)
 			{
@@ -73,7 +73,7 @@ public class FinishZone : MonoBehaviour
 				GameManager.Instance.LevelManager.Success();
 			}
 		}
-		else if (!locked && Vector3.Distance(GameManager.Instance.LevelManager.Player.transform.position, base.transform.position) < radius)
+		else if (!Locked && Vector3.Distance(GameManager.Instance.LevelManager.Player.transform.position, base.transform.position) < radius)
 		{
 			GameManager.Instance.LevelManager.gameMode = gameMode;
 			GameManager.Instance.LevelManager.game3CType = game3CType;
