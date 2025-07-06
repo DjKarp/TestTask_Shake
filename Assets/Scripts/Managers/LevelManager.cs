@@ -223,6 +223,7 @@ public class LevelManager : MonoBehaviour
 		pointer = UnityEngine.Object.Instantiate(pointerPfb);
 		GameManager.Instance.CameraManager.Init(player, pointer.transform);
 		pointer.virtualCamera = GameManager.Instance.CameraManager.TopDownCameraArm.VirtualCamera;
+		pointer.Init(GameManager.Instance.InputService.PointerService);
 		GameManager.Instance.TimeScaleManager.ResetTimeScales();
 		enemyKillCount = 0;
 		UpdateUICount();

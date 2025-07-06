@@ -15,8 +15,8 @@ public class InputService : MonoBehaviour
 	private IDirectionInput _directionController;
 	public IDirectionInput DirectionController => _directionController;
 
-	private IDirectionInput _pointerController;
-	public IDirectionInput PointerController => _pointerController;
+	private IPointerService _pointerService;
+	public IPointerService PointerService => _pointerService;
 
 
 	private IActionInput _actionController;
@@ -30,12 +30,13 @@ public class InputService : MonoBehaviour
 		{
 			_joystickMove.gameObject.SetActive(true);
 			_directionController = new JoystickDirectionInput(_joystickMove);
-			_pointerController = new JoystickDirectionInput(_joystickPointer);
+			_pointerService = new JoystickPointerService(_joystickPointer);
 			_actionController = GetTouchActionInput();
 		}
 		else
 		{
-			_directionController = new KeyboardDirectionInput();
+			_directionController = new KeyboardDirectionInput();			
+			_pointerService = new MousePointerService();
 			_actionController = new KeyboardActionInput();
 		}
 	}

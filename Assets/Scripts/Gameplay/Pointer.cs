@@ -1,4 +1,5 @@
 using UnityEngine;
+using AddedControl;
 
 public class Pointer : MonoBehaviour
 {
@@ -12,6 +13,14 @@ public class Pointer : MonoBehaviour
 	[SerializeField]
 	private LayerMask groundLayer;
 
+	private IPointerService _pointerService;
+
+	// Это лучше сделать через DI
+	public void Init(IPointerService pointerService)
+    {
+		_pointerService = pointerService;
+    }
+
 	private void Start()
 	{
 		Cursor.visible = false;
@@ -20,10 +29,6 @@ public class Pointer : MonoBehaviour
 
 	private void Update()
 	{
-		ray = virtualCamera.ScreenPointToRay(UnityEngine.Input.mousePosition);
-		if (Physics.RaycastNonAlloc(ray, hitInfo, 100f, groundLayer) > 0)
-		{
-			base.transform.position = hitInfo[0].point;
-		}
+		base.transform.position = _pointerService.GetPointerPosition(virtualCamera, groundLayer);
 	}
 }
