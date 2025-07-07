@@ -7,7 +7,7 @@ public class Combat : MonoBehaviour
 	public delegate void KillAllDelegate();
 
 	[SerializeField]
-	private int maxHealth = 10;
+	protected int maxHealth = 10;
 
 	[SerializeField]
 	private int team;
@@ -18,7 +18,7 @@ public class Combat : MonoBehaviour
 
 	private SnakePart part;
 
-	private bool dead;
+	protected bool dead;
 
 	private bool actived;
 
@@ -49,7 +49,7 @@ public class Combat : MonoBehaviour
 	[SerializeField]
 	private ParticleSystem bloodParticle;
 
-	private int health;
+	protected int health;
 
 	private ParticleSystem.EmissionModule partEmi;
 
@@ -240,7 +240,7 @@ public class Combat : MonoBehaviour
 		return false;
 	}
 
-	private void Die(int _killerTeam)
+	protected virtual void Die(int _killerTeam)
 	{
 		if (dead)
 		{

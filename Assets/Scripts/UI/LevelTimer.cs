@@ -10,6 +10,7 @@ public class LevelTimer : MonoBehaviour
 	public Timer timer;
 
 	public float levelTime = 300f;
+	public float addedTimeOnSurviveMode = 10.0f;
 
 	public bool pauseOnAwake;
 
@@ -81,5 +82,14 @@ public class LevelTimer : MonoBehaviour
 		{
 			activeLevelTimer.Resume();
 		}
+	}
+
+	public void AddedTimeOnSurviveMode()
+    {
+		AddedTime(addedTimeOnSurviveMode);
+    }
+	private void AddedTime(float time)
+    {
+		levelTime += time;
 	}
 }
