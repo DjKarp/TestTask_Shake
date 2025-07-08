@@ -13,13 +13,13 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float _difficultyMultiplier = 1.3f;
     [SerializeField] private LayerMask _obstacleMask;
 
-    [Header("Spawn Area")]    
+    [Header("Spawn Area")]
     [SerializeField] private float _spawnAreaRadius = 70f;
     private Transform _centerPoint;
     private int _maxTries = 200;
 
     private Pool<CombatPoolAdapter> _enemyPool;
-    private int _currentWave = 0;
+    public int CurrentWave { get; private set; }
     private int _aliveEnemies = 0;
     public List<CombatSurvive> EnemyList = new List<CombatSurvive>();
 
@@ -29,6 +29,8 @@ public class EnemySpawner : MonoBehaviour
 
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+
+        CurrentWave = 0;
     }
 
     private void Start()
@@ -45,10 +47,10 @@ public class EnemySpawner : MonoBehaviour
 
     private void StartNextWave()
     {
-        _currentWave++;
+        CurrentWave++;
 
         //int enemiesToSpawn = _initialEnemyCount + _currentWave;
-        int enemiesToSpawn = Mathf.Min(Mathf.RoundToInt(_initialEnemyCount * Mathf.Pow(_difficultyMultiplier, _currentWave - 1)), _maxEnemiesPerWave);
+        int enemiesToSpawn = Mathf.Min(Mathf.RoundToInt(_initialEnemyCount * Mathf.Pow(_difficultyMultiplier, CurrentWave - 1)), _maxEnemiesPerWave);
 
         _aliveEnemies = enemiesToSpawn;
 

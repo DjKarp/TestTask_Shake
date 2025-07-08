@@ -39,6 +39,8 @@ public class UIManager : MonoBehaviour
 	[SerializeField]
 	private GameObject hudPanel;
 
+	[SerializeField] private AllyUIController _allyUIController;
+
 	private float overShowTimer;
 
 	private Color tempColor;
@@ -67,6 +69,10 @@ public class UIManager : MonoBehaviour
 		hudPanel.SetActive(value: true);
 		over = false;
 		overShowTimer = 0f;
+
+		// Или любой другой алаг, по которому понятно, что уровень выживания
+		if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name.Contains("99"))
+			_allyUIController.gameObject.SetActive(true);
 	}
 
 	public void UpdateCount(int _teamCount, int _remainCount, int _targetCount)

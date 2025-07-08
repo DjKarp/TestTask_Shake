@@ -2,14 +2,27 @@ using UnityEngine;
 
 public class PickableCollector : MonoBehaviour
 {
+    [SerializeField] private int _waveMultiplier = 3;
+    [SerializeField] private int _startCountDiamondsForAlly = 5;
+
     private int _diamondsCollected;
     private int _alliesSpawned;
+
+    public int CurrentDiamonds => _diamondsCollected;
 
     public void AddDiamonds(int amount)
     {
         _diamondsCollected += amount;
+    }
 
-        Debug.Log($"Diamonds: {_diamondsCollected}");
+    public int GetRequiredDiamondsForNextAlly()
+    {
+        return _startCountDiamondsForAlly + Mathf.Min(_alliesSpawned, EnemySpawner.Instance.CurrentWave) * _waveMultiplier;
+    }
+
+    public bool CanSpawnAlly()
+    {
+        return _diamondsCollected >= GetRequiredDiamondsForNextAlly();
     }
 
     public bool TrySpendDiamonds(int amount)
@@ -25,11 +38,5 @@ public class PickableCollector : MonoBehaviour
     public void IncrementAllyCount()
     {
         _alliesSpawned++;
-    }
-
-    public void ResetInventory()
-    {
-        _diamondsCollected = 0;
-        _alliesSpawned = 0;
     }
 }
