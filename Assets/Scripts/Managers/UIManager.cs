@@ -77,7 +77,7 @@ public class UIManager : MonoBehaviour
 
 	public void UpdateCount(int _teamCount, int _remainCount, int _targetCount)
 	{
-		remainCountText.text = _remainCount.ToString();
+		remainCountText.text = Mathf.Clamp(_remainCount, 0, 999).ToString();
 		targetCountText.text = _teamCount.ToString() + "/" + _targetCount.ToString();
 		if (_teamCount >= _targetCount)
 		{
