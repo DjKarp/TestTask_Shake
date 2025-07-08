@@ -440,4 +440,9 @@ public class Combat : MonoBehaviour
 	{
 		isBlack = true;
 	}
+
+	public void AddedHealth(int healtAddeded)
+    {
+		health = Mathf.Min(health + healtAddeded, maxHealth);
+    }
 }

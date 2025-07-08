@@ -660,6 +660,7 @@
     <Compile Include="Assets\Standard Assets\Scripts\SteamInventoryFullUpdate_t.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\Steamworks\EUserHasLicenseForAppResult.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\AccountID_t.cs" />
+    <Compile Include="Assets\Plugins\BTM_Assets\BTM_Items_Gems\Scripts\SimpleGemsAnim.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3ScriptableObjectType.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\ES3Types\ES3Type_EventSystem.cs" />
     <Compile Include="Assets\Standard Assets\Scripts\NewUrlLaunchParameters_t.cs" />

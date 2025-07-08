@@ -1,15 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CombatPoolAdapter : PooledBehaviour
 {
-    private CombatSurvive _combatSurvive;
+    public CombatSurvive CombatSurvive;
     private EnemySpawner _spawner;
 
     private void Awake()
     {
-        _combatSurvive = GetComponent<CombatSurvive>();
+        CombatSurvive = GetComponent<CombatSurvive>();
     }
 
     public void Initialize(EnemySpawner spawnerRef)
@@ -17,22 +15,26 @@ public class CombatPoolAdapter : PooledBehaviour
         _spawner = spawnerRef;
 
         // Защита от двойной подписки
-        _combatSurvive.onDeath -= HandleDeath;
-        _combatSurvive.onDeath += HandleDeath;
+        CombatSurvive.onDeath -= HandleDeath;
+        CombatSurvive.onDeath += HandleDeath;
     }
 
     private void HandleDeath()
     {
-        _spawner.OnEnemyKilled();
-        _spawner.RecycleEnemy(this);
-
+        // Добавляем время. А время будет ограничено, чтобы игрок не стоял на месте и был стимул бегать и искать врага.
         LevelTimer.activeLevelTimer.AddedTimeOnSurviveMode();
+
+        // Добавляем собираемые объекты
+        SpawnLootService.Instance.SpawnLoot(this.transform.position);
+
+        _spawner.OnEnemyKilled();
+        _spawner.RecycleEnemy(this);        
     }
 
     public override void Activate()
     {
         gameObject.SetActive(true);
-        _combatSurvive.ResetCombat();
+        CombatSurvive.ResetCombat();
     }
 
     public override void Deactivate()
