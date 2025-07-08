@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
 	[SerializeField]
 	private Image healthBarImage;
 
-	private Material healthBarMat;
+	//private Material healthBarMat;
 
 	[SerializeField]
 	private Text remainCountText;
@@ -49,7 +49,7 @@ public class UIManager : MonoBehaviour
 
 	private void Awake()
 	{
-		healthBarMat = healthBarImage.material;
+		//healthBarMat = healthBarImage.material;
 	}
 
 	private void Start()
@@ -87,7 +87,8 @@ public class UIManager : MonoBehaviour
 	{
 		if (GameManager.Instance.LevelManager.Player != null)
 		{
-			healthBarMat.SetFloat("_CutValue", GameManager.Instance.LevelManager.Player.Combat.HealthPercent);
+			//healthBarMat.SetFloat("_CutValue", GameManager.Instance.LevelManager.Player.Combat.HealthPercent);
+			healthBarImage.fillAmount = GameManager.Instance.LevelManager.Player.Combat.HealthPercent;
 		}
 		if (over && overShowTimer < overShowTime)
 		{

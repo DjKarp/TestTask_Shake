@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public static EnemySpawner Instance { get; private set; }
+
     [Header("Spawn Settings")]
     [SerializeField] private CombatPoolAdapter _enemyPrefab;
     [SerializeField] private int _initialEnemyCount = 3;
@@ -12,17 +14,21 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private LayerMask _obstacleMask;
 
     [Header("Spawn Area")]    
-    [SerializeField] private float _spawnAreaRadius = 10f;
+    [SerializeField] private float _spawnAreaRadius = 70f;
     private Transform _centerPoint;
     private int _maxTries = 200;
 
     private Pool<CombatPoolAdapter> _enemyPool;
     private int _currentWave = 0;
     private int _aliveEnemies = 0;
+    public List<CombatSurvive> EnemyList = new List<CombatSurvive>();
 
     private void Awake()
     {
         _centerPoint = this.transform;
+
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
 
     private void Start()
@@ -57,6 +63,8 @@ public class EnemySpawner : MonoBehaviour
 
         Vector3 spawnPos = GetValidSpawnPosition();
         enemy.transform.position = spawnPos;
+
+        EnemyList.Add(enemy.CombatSurvive);
     }
 
     private Vector3 GetValidSpawnPosition()
@@ -88,6 +96,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void RecycleEnemy(CombatPoolAdapter enemy)
     {
+        EnemyList.Remove(enemy.CombatSurvive);
         _enemyPool.Recycle(enemy);
     }
 

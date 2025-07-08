@@ -113,8 +113,8 @@ Material:
     - __dirty: 0
     m_Colors:
     - _BaseColor: {r: 0.8848789, g: 0.9021448, b: 0.9150943, a: 0}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 34.29675, g: 2.103103, b: 2.103103, a: 0}
+    - _Color: {r: 0.6886792, g: 0.5489943, b: 0.5489943, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor1: {r: 1, g: 1, b: 1, a: 0}
     - _Tiling: {r: 0.2, g: 0.2, b: 0, a: 0}
     - _Tint: {r: 0.248309, g: 0.2939658, b: 0.3396226, a: 0}
