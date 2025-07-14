@@ -1,7 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-//using GamePush;
+using GamePush;
 
 public class SurvivalLevelAccessUI : MonoBehaviour
 {
@@ -22,10 +21,12 @@ public class SurvivalLevelAccessUI : MonoBehaviour
         _survivalFinishZone = GetComponentInParent<SurvivalFinishZone>();
     }
 
-    private void Start()
+    private async void Start()
     {
         _hasTempAccess = DataManager.data._tempSurvivalModeUnlocked;
         UpdateVisuals();
+
+        await GP_Init.Ready;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -41,8 +42,8 @@ public class SurvivalLevelAccessUI : MonoBehaviour
 
     private void TryShowAd()
     {
-        /*
-        if (GP_Ads.IsRewardedReady("SURVIVAL"))
+        
+        if (CheckReady() && !DataManager.data._tempSurvivalModeUnlocked)
         {
             GP_Ads.OnRewardedReward += OnAdRewarded;
             GP_Ads.ShowRewarded("SURVIVAL");
@@ -51,25 +52,7 @@ public class SurvivalLevelAccessUI : MonoBehaviour
         {
             Debug.Log("Реклама не готова");
             _isAsTiggered = false; // можно снова войти
-        }*/
-
-        StartCoroutine(TempAd());
-    }
-
-    private IEnumerator TempAd()
-    {
-        int secDelay = 0;
-
-        while (secDelay < 1)
-        {
-            Debug.LogError("ad see on " + secDelay);
-            secDelay++;
-            yield return new WaitForSeconds(1);
         }
-
-        Debug.LogError("Ad Success seen!");
-
-        OnAdRewarded("SURVIVAL");
     }
 
     private void OnAdRewarded(string tag)
@@ -77,7 +60,7 @@ public class SurvivalLevelAccessUI : MonoBehaviour
         if (tag != "SURVIVAL") 
             return;
 
-        //GP_Ads.OnRewardedReward -= OnAdRewarded;
+        GP_Ads.OnRewardedReward -= OnAdRewarded;
 
         DataManager.data._tempSurvivalModeUnlocked = true;
         DataManager.Save();
@@ -106,14 +89,21 @@ public class SurvivalLevelAccessUI : MonoBehaviour
         DataManager.Save();
     }
 
-    /*
-    // Когда игрок прошёл все уровни
-    public void UnlockPermanently()
+    private void OnPluginReady()
     {
-        DataManager.data._survivalModeUnlocked = true;
-        DataManager.Save();
+        Debug.LogError("Ad Plugin ready");
+    }
 
-        _hasTempAccess = true;
-        UpdateVisuals();
-    }*/
+    private bool CheckReady()
+    {
+        if (GP_Init.isReady)
+        {
+            return true;
+        }
+        else
+        {
+            Debug.LogError("Ad Plugin NOT ready");
+            return false;
+        }
+    }
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using GamePush;
 
 public class LevelManager : MonoBehaviour
 {
@@ -227,7 +228,17 @@ public class LevelManager : MonoBehaviour
 		GameManager.Instance.TimeScaleManager.ResetTimeScales();
 		enemyKillCount = 0;
 		UpdateUICount();
-		Paused = false;
+
+		if (GameManager.Instance.currentLevel > 0)
+		{
+			Paused = true;
+			GP_Ads.ShowRewarded("Start_Level");
+			GP_Ads.OnRewardedReward += OnAdRewarded;
+		}
+		else
+        {
+			Paused = false;
+        }
 	}
 
 	public void Defeat(DefeatType _type)
@@ -321,6 +332,11 @@ public class LevelManager : MonoBehaviour
 			}
 			break;
 		}
+
+		// Ads
+		GP_Ads.ShowRewarded("Player_Death");
+		GP_Ads.OnRewardedReward += OnAdRewarded;
+
 		DataManager.Save();
 	}
 
@@ -471,5 +487,13 @@ public class LevelManager : MonoBehaviour
 		{
 			instance.TryLoadLevel(instance.levelIndex);
 		}
+	}
+
+	private void OnAdRewarded(string tag)
+	{
+		if (tag != "Start_Level" || tag != "Player_Death")
+			return;
+
+		GP_Ads.OnRewardedReward -= OnAdRewarded;
 	}
 }
