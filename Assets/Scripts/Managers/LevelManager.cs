@@ -143,6 +143,8 @@ public class LevelManager : MonoBehaviour
 
 	public event PauseEventHandler onPauseChanged;
 
+	public bool IsSurvivalMode { get => levelIndex == 99; }
+
 	public static void Pause()
 	{
 		Paused = true;

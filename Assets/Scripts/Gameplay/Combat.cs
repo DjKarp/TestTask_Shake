@@ -85,6 +85,8 @@ public class Combat : MonoBehaviour
 
 	public float HealthPercent => Mathf.Clamp01((float)health / (float)maxHealth);
 
+	private int _deathTeam;
+
 	private void Awake()
 	{
 		Init();
@@ -217,12 +219,15 @@ public class Combat : MonoBehaviour
 			}
 			if (health <= 0)
 			{
-				if (IsHead())
-				{
-					GameManager.Instance.PostManager.StartHurt();
-					GameManager.Instance.LevelManager.Defeat(DefeatType.died);
+				if (IsHead() && LevelManager.instance.IsSurvivalMode)
+                {
+					_deathTeam = _team;
+					GameManager.Instance.SurvivalReviveAd.OnPlayerDeath();
 				}
-				Die(_team);
+				else
+                {
+					DeathEvent(_team);
+				}
 			}
 		}
 		else
@@ -445,4 +450,19 @@ public class Combat : MonoBehaviour
     {
 		health = Mathf.Min(health + healtAddeded, maxHealth);
     }
+
+	public void ResetCombat()
+    {
+		health = maxHealth;
+	}
+
+	public void DeathEvent()
+    {
+		if (IsHead())
+		{
+			GameManager.Instance.PostManager.StartHurt();
+			GameManager.Instance.LevelManager.Defeat(DefeatType.died);
+		}
+		Die(_deathTeam);
+	}
 }

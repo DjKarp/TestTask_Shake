@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
 	private CameraManager cameraManager;
 
 	private InputService _inputService;
+	private SurvivalReviveAd _survivalReviveAd;
 
 	private bool inited;
 
@@ -48,6 +49,9 @@ public class GameManager : MonoBehaviour
 	public CameraManager CameraManager => cameraManager;
 
 	public InputService InputService => _inputService;
+	public SurvivalReviveAd SurvivalReviveAd => _survivalReviveAd;
+
+
 
 	public int currentLevel => levelManager.levelInfo.currentLevelIndex;
 
@@ -68,6 +72,7 @@ public class GameManager : MonoBehaviour
 		uiManager = GetComponent<UIManager>();
 		cameraManager = GetComponent<CameraManager>();
 		_inputService = GetComponent<InputService>();
+		_survivalReviveAd = GetComponent<SurvivalReviveAd>();
 		inited = true;
 		Application.targetFrameRate = 144;
 	}

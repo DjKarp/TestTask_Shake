@@ -49,6 +49,8 @@ public class UIManager : MonoBehaviour
 
 	private bool over;
 
+	[SerializeField] private GameObject _revivePopupUI;
+
 	private void Awake()
 	{
 		//healthBarMat = healthBarImage.material;
@@ -133,5 +135,15 @@ public class UIManager : MonoBehaviour
 		tempColor = _text.color;
 		tempColor.a = alpha;
 		_text.color = tempColor;
+	}
+
+	public void ShowRevivePopupUI()
+    {
+		_revivePopupUI.SetActive(true);
+	}
+
+	public void HideRevivePopupUI()
+	{
+		_revivePopupUI.SetActive(false);
 	}
 }
