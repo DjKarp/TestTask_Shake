@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 public class CombatSurvive : Combat
 {
@@ -14,9 +11,9 @@ public class CombatSurvive : Combat
         base.Die(_killerTeam);
     }
 
-    public void ResetCombat()
+    public override void ResetCombat()
     {
+        base.ResetCombat();
         dead = false;
-        health = maxHealth;
     }
 }

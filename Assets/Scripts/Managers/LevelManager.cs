@@ -233,13 +233,13 @@ public class LevelManager : MonoBehaviour
 
 		if (GameManager.Instance.currentLevel > 0)
 		{
-			Paused = true;
+			Pause();
 			GP_Ads.ShowRewarded("Start_Level");
 			GP_Ads.OnRewardedReward += OnAdRewarded;
 		}
 		else
         {
-			Paused = false;
+			Resume();
         }
 	}
 

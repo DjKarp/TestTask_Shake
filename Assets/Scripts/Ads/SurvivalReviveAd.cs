@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using GamePush;
 
@@ -7,34 +5,28 @@ public class SurvivalReviveAd : MonoBehaviour
 {
     private Combat _combat;
 
-    public void Init (Combat combat)
+    public void OnPlayerDeath(Combat combat)
     {
-        _combat = combat;
-    }
-
-    public void OnPlayerDeath()
-    {
-        if (!GP_Ads.IsRewardedAvailable())
+        /*if (!GP_Ads.IsRewardedAvailable())
         {
             return;
-        }
-
-        Time.timeScale = 0f;
+        }*/
+        _combat = combat;
+        LevelManager.Pause();
         GameManager.Instance.UIManager.ShowRevivePopupUI();
     }
 
     public void OnReviveConfirmed()
     {
         GameManager.Instance.UIManager.HideRevivePopupUI();
-
-        GP_Ads.ShowRewarded("ShowRewardedOnDeath");
         GP_Ads.OnRewardedReward += OnAdRewarded;
+        GP_Ads.ShowRewarded("ShowRewardedOnDeath");
     }
 
     public void OnReviveDeclined()
     {
         GameManager.Instance.UIManager.HideRevivePopupUI();
-        Time.timeScale = 1f;
+        LevelManager.Resume();
         _combat.DeathEvent();
     }
 
@@ -43,8 +35,8 @@ public class SurvivalReviveAd : MonoBehaviour
         if (tag != "ShowRewardedOnDeath")
             return;
 
-        GP_Ads.OnRewardedReward -= OnAdRewarded;
-        Time.timeScale = 1f;
+        GP_Ads.OnRewardedReward -= OnAdRewarded;        
         _combat.ResetCombat();
+        LevelManager.Resume();
     }
 }

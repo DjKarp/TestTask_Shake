@@ -6960,7 +6960,7 @@ MonoBehaviour:
   overShowTime: 2
   hudPanel: {fileID: 1791768364388438067}
   _allyUIController: {fileID: 401501724}
-  _revivePopupUI: {fileID: 0}
+  _revivePopupUI: {fileID: 2141368678}
 --- !u!114 &1791768366284263952
 MonoBehaviour:
   m_ObjectHideFlags: 0

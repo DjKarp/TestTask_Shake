@@ -219,14 +219,15 @@ public class Combat : MonoBehaviour
 			}
 			if (health <= 0)
 			{
+				_deathTeam = _team;
+
 				if (IsHead() && LevelManager.instance.IsSurvivalMode)
                 {
-					_deathTeam = _team;
-					GameManager.Instance.SurvivalReviveAd.OnPlayerDeath();
+					GameManager.Instance.SurvivalReviveAd.OnPlayerDeath(this);
 				}
 				else
                 {
-					DeathEvent(_team);
+					DeathEvent();
 				}
 			}
 		}
@@ -451,7 +452,7 @@ public class Combat : MonoBehaviour
 		health = Mathf.Min(health + healtAddeded, maxHealth);
     }
 
-	public void ResetCombat()
+	public virtual void ResetCombat()
     {
 		health = maxHealth;
 	}
