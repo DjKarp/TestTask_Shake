@@ -41,9 +41,9 @@ public class SurvivalLevelAccessUI : MonoBehaviour
 
     private void TryShowAd()
     {
-        
         if (CheckReady() && !DataManager.data._tempSurvivalModeUnlocked)
         {
+            Debug.LogError("Show Ad");
             GP_Ads.OnRewardedReward += OnAdRewarded;
             GP_Ads.ShowRewarded("SURVIVAL");
         }
@@ -58,6 +58,8 @@ public class SurvivalLevelAccessUI : MonoBehaviour
     {
         if (tag != "SURVIVAL") 
             return;
+
+        Debug.LogError("OnAdRewarded");
 
         GP_Ads.OnRewardedReward -= OnAdRewarded;
 

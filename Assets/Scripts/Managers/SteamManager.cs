@@ -65,15 +65,15 @@ public class SteamManager : MonoBehaviour
 		}
 		try
 		{
-#if !UNITY_EDITOR
-			if (SteamAPI.RestartAppIfNecessary((AppId_t)1806040u))
+//#if !UNITY_EDITOR
+			/*if (SteamAPI.RestartAppIfNecessary((AppId_t)1806040u))
 			{
 				Application.Quit();
 				return;
-			}
-#else
+			}*/
+//#else
 			Debug.Log("Editor mode Ч не запускаем Steam через RestartAppIfNecessary");
-#endif
+//#endif
 		}
 		catch (DllNotFoundException ex)
 		{
@@ -81,7 +81,7 @@ public class SteamManager : MonoBehaviour
 			Application.Quit();
 			return;
 		}
-		m_bInitialized = SteamAPI.Init();
+		/*m_bInitialized = false; // SteamAPI.Init();
 		if (!m_bInitialized)
 		{
 			UnityEngine.Debug.LogError("[Steamworks.NET] SteamAPI_Init() failed. Refer to Valve's documentation or the comment above this line for more information.", this);
@@ -89,7 +89,7 @@ public class SteamManager : MonoBehaviour
 		else
 		{
 			s_EverInitialized = true;
-		}
+		}*/
 	}
 
 	protected virtual void OnEnable()

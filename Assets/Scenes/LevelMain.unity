@@ -948,6 +948,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _joystickMove: {fileID: 1638901428}
   _joystickPointer: {fileID: 876737769}
+  _touchAction: {fileID: 524270328}
 --- !u!1 &726334999
 GameObject:
   m_ObjectHideFlags: 0
@@ -2184,7 +2185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8509804}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

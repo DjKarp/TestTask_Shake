@@ -8,7 +8,7 @@ public class InputService : MonoBehaviour
 
 	[SerializeField] private Joystick _joystickMove;
 	[SerializeField] private Joystick _joystickPointer;
-	private TouchActionInput _touchAction;
+	[SerializeField] private TouchActionInput _touchAction;
 
 
 	private IDirectionInput _directionController;
@@ -43,7 +43,6 @@ public class InputService : MonoBehaviour
 
 	public TouchActionInput GetTouchActionInput()
 	{
-		_touchAction = GetComponentInChildren<TouchActionInput>();
 		_touchAction.gameObject.SetActive(true);
 		return _touchAction;
 	}

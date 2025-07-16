@@ -238,10 +238,10 @@ public class DataManager : MonoBehaviour
 				data = new Data();
 			}
 		}
-		if (SteamManager.Initialized)
+		/*if (SteamManager.Initialized)
 		{
 			SteamUserStats.RequestCurrentStats();
-		}
+		}*/
 	}
 
 	public static void SetSavesIndex(int index)
@@ -267,11 +267,11 @@ public class DataManager : MonoBehaviour
 		if (AchievementAndStatisticsEnabled)
 		{
 			bool pbAchieved;
-			if (SteamManager.Initialized && SteamUserStats.GetAchievement(achievementName, out pbAchieved) && !pbAchieved)
+			/*if (SteamManager.Initialized && SteamUserStats.GetAchievement(achievementName, out pbAchieved) && !pbAchieved)
 			{
 				SteamUserStats.SetAchievement(achievementName);
 				SteamUserStats.StoreStats();
-			}
+			}*/
 			if (save)
 			{
 				Save();
