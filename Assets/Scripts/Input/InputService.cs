@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using AddedControl;
+using GamePush;
 
 public class InputService : MonoBehaviour
 {	
@@ -26,7 +25,7 @@ public class InputService : MonoBehaviour
 	private void Awake()
 	{
 		// Initialize control
-		if (false /*GP_Device.IsMobile*/)
+		if (GP_Device.IsMobile())
 		{
 			_joystickMove.gameObject.SetActive(true);
 			_joystickPointer.gameObject.SetActive(true);

@@ -6,10 +6,6 @@ public class Pointer : MonoBehaviour
 	[HideInInspector]
 	public Camera virtualCamera;
 
-	private Ray ray;
-
-	private RaycastHit[] hitInfo;
-
 	[SerializeField]
 	private LayerMask groundLayer;
 
@@ -24,7 +20,6 @@ public class Pointer : MonoBehaviour
 	private void Start()
 	{
 		Cursor.visible = false;
-		hitInfo = new RaycastHit[1];
 	}
 
 	private void Update()
