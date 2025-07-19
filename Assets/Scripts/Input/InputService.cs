@@ -25,7 +25,7 @@ public class InputService : MonoBehaviour
 	private void Awake()
 	{
 		// Initialize control
-		if (GP_Device.IsMobile())
+		if (true /*GP_Device.IsMobile()*/)
 		{
 			_joystickMove.gameObject.SetActive(true);
 			_joystickPointer.gameObject.SetActive(true);
